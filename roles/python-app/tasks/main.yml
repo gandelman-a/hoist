@@ -26,7 +26,7 @@
     update: "{{ python_app_git_update | default(omit) }}"
     force: "{{ python_app_git_force | default(omit) }}"
   register: python_app_git_checkout
-  notify: "{{ python_app_notify }}"
+  notify: "{{ python_app_notify | default(omit) }}"
 
 - name: Install pip dependencies
   pip:

@@ -1,0 +1,9 @@
+bastion ansible_ssh_host=169.44.171.94 ansible_ssh_user=ubuntu
+
+[bastion]
+bastion
+
+[bastion:vars]
+hoist_repo=https://github.com/gandelman-a/hoist.git
+hoist_branch=zuulv3
+ci_inventory=opentech-sjc-adamg

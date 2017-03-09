@@ -78,6 +78,7 @@
 - name: Download source
   git:
     repo: "{{ ansible_runner_repo }}"
+    version: "{{ ansible_runner_branch | default('master') }}"
     dest: "/opt/source/{{ ansible_runner_job }}"
     update: true
 
