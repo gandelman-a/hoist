@@ -4,6 +4,9 @@
 [nodepool]
 192.168.10.13
 
+[nodepool:vars]
+zookeeper_myid: 1
+
 [zuul]
 192.168.10.15
 
