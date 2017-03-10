@@ -1,3 +1,6 @@
+[bastion]
+bastion.opentechsjc.bonnyci.org ansible_connection=local
+
 [nodepool]
 192.168.10.13
 
