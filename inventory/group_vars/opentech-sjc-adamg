@@ -1,0 +1,43 @@
+zuul_git_repo_url: https://github.com/openstack-infra/zuul
+zuul_version: 3
+zuul_git_branch: feature/zuulv3
+
+bastion_clouds:
+  - opentech-sjc-adamg
+
+bonnyci_logs_apache_server_name: 169.44.171.76
+bonnyci_logs_scp_host: 169.44.171.76
+bonnyci_zuul_webapp_apache_server_name: 169.44.171.76
+bonnyci_zuul_merger_apache_server_name: 192.168.10.14
+
+ci_inventory: opentech-sjc-adamg
+
+filebeat_output_logstash_hosts:
+  - 192.168.10.11:5044
+
+logstash_elasticsearch_hosts:
+  - "http://localhost:9200"
+
+nodepool_gearman_servers:
+  - host: 192.168.10.15
+    port: 4730
+nodepool_mysql_host: 192.168.10.15
+nodepool_providers:
+  - name: cicloud
+    cloud: opentech-sjc-adamg
+    max-servers: 20
+    networks:
+      - name: 'adam_g-nodepool'
+        public: False
+    images:
+      - name: ubuntu-xenial
+        min-ram: 2048
+        diskimage: ubuntu-xenial
+        private-key: /var/lib/nodepool/.ssh/id_rsa
+        user-home: /home/bonnyci
+        username: bonnyci
+nodepool_zmq_publishers:
+  - tcp://192.168.10.15:8888
+
+zuul_gearman_server: 192.168.10.15
+zuul_logs_url: http://169.44.171.74
