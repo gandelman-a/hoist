@@ -13,8 +13,6 @@ zookeeper_myid=1
 [zuul]
 192.168.10.15
 
-[zuul:vars]
-bonnyci
 [mergers]
 192.168.10.14
 
