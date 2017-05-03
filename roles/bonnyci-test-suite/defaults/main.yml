@@ -1,0 +1,2 @@
+test_suite_user: bonnyci-test-suite
+test_suite_homedir: /var/lib/bonnyci-test-suite

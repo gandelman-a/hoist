@@ -30,7 +30,7 @@
 
 - include: secret-file.yml
   secret_file_type: secrets
-  secret_file_path: "{{ ansible_runner_secrets_path }}"
+  secret_file_path: "{{ item.secrets_path | default(ansible_runner_secrets_path) }}"
   secret_file_user: "{{ item.user }}"
 
 - name: Ensure cron log path
@@ -53,4 +53,4 @@
     name: "ansible-runner deploy {{ item.name}}"
     minute: "{{ ansible_runner_minute | default(omit) }}"
     user: "{{ item.user }}"
-    job: "/usr/local/bin/ansible-runner {{ item.name }} -e @{{ ansible_runner_secrets_path }}"
+    job: "/usr/local/bin/ansible-runner {{ item.name }} -e @{{ item.secrets_path | default(ansible_runner_secrets_path) }}"
